@@ -65,7 +65,7 @@ function requestFullscreen(target) {
       var file = event.target.files[0];
       document.getElementById("video2").src = URL.createObjectURL(file);
       document.getElementsByClassName("view")[0].style.display="inline";
-      //document.getElementsByClassName("start")[0].style.display="none";
+      document.getElementsByClassName("start")[0].style.display="none";
       requestFullscreen(document.getElementsByClassName("view")[0]);
     }, false );
 </script>
