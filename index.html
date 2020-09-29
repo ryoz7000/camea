@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<style type="text/css">
+.view{
+display:none;
+width:100%;
+position: relative;
+}
+#video {
+width:100%;
+}
+#video2 {
+
+width:20%;
+position: absolute;
+bottom:10px;
+right:10px;
+border-radius: 10px;
+}
+</style>
+<body>
+<div class="view">
+<video id="video"  autoplay playsinline></video>
+<video id="video2" autoplay loop></video>
+</div>
+<br>
+<div class="start">
+<input type="file" id="filename" value="ファイル読み込み"/>
+</div>
+<script>
+function requestFullscreen(target) {
+	if (target.webkitRequestFullscreen) {
+		target.webkitRequestFullscreen(); //Chrome15+, Safari5.1+, Opera15+
+	} else if (target.mozRequestFullScreen) {
+		target.mozRequestFullScreen(); //FF10+
+	} else if (target.msRequestFullscreen) {
+		target.msRequestFullscreen(); //IE11+
+	} else if (target.requestFullscreen) {
+		target.requestFullscreen(); // HTML5 Fullscreen API仕様
+	} else {
+		alert('ご利用のブラウザはフルスクリーン操作に対応していません');
+		return;
+	}
+}
+
+    const constraints = {
+        audio: false,  // オーディオデバイスは使用しない
+        video: true // デフォルトのカメラデバイスを使用する
+    };
+
+    var f = document.getElementById("filename");
+    f.addEventListener( "change", function (event) {
+
+      navigator.mediaDevices.getUserMedia(constraints)
+        .then(function (stream) {document.getElementById("video").srcObject = stream});
+
+      var URL = URL || webkitURL;
+      var file = event.target.files[0];
+      document.getElementById("video2").src = URL.createObjectURL(file);
+      document.getElementsByClassName("view")[0].style.display="inline";
+      //document.getElementsByClassName("start")[0].style.display="none";
+      requestFullscreen(document.getElementsByClassName("view")[0]);
+
+
+    }, false );
+</script>
+</body>
+</html>
