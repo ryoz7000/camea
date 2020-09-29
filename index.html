@@ -11,10 +11,13 @@
 .view{
 display:none;
 width:100%;
+height:100%;
 position: relative;
 }
 #video {
 width:100%;
+height:100%;
+object-fit:cover;
 }
 #video2 {
 
@@ -45,8 +48,6 @@ function requestFullscreen(target) {
 	} else if (target.requestFullscreen) {
 		target.requestFullscreen(); // HTML5 Fullscreen API仕様
 	} else {
-		alert('ご利用のブラウザはフルスクリーン操作に対応していません');
-		return;
 	}
 }
 
