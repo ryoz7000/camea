@@ -13,7 +13,6 @@ html,body{
 	background-color: red;
 }	
 .view{
-display:none;
 width:100%;
 height:100%;
 position: relative;
@@ -76,5 +75,6 @@ function requestFullscreen(target) {
       document.getElementsByClassName("start")[0].style.display="none";
       requestFullscreen(document.getElementsByClassName("view")[0]);
     }, false );
+document.getElementsByClassName("view")[0].style.display="none";	
 </script>
 </html>
