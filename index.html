@@ -36,18 +36,13 @@ border-radius: 10px;
 	background-color: gray;
 }
 #filename{
-	top:0;
-	left:0;
-	font-size:100px;
-	position:absolute;
-	background-color: yellow;
+	display:none;
 }
 </style>
 <body>
 <div class="view">
 <video id="video"  autoplay ></video>
-<video id="video2" autoplay loop onClick=loadMovie()></video>
-<input type="file" id="filename"/>
+<video id="video2" autoplay loop onClick=loadMovie()><input type="file" id="filename"/></video>
 </div>
 <br>
 
