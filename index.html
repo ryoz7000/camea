@@ -60,6 +60,14 @@ function requestFullscreen(target) {
 	}
 }
 
+var f = document.getElementById("filename");
+f.addEventListener( "change", function (event) {
+    var URL = URL || webkitURL;
+    var file = event.target.files[0];
+    document.getElementById("video2").src = URL.createObjectURL(file);
+    document.getElementById("filename").style.display="none";
+	
+
 const constraints ={ audio: false, video: { facingMode: "environment" } };
 
 document.getElementById("view").style.width="100%";
@@ -68,13 +76,6 @@ navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {documen
 document.getElementById("video").style.width="100%";
 document.getElementById("video").style.height="100%";
 requestFullscreen(document.getElementsByClassName("view")[0]);
-
-var f = document.getElementById("filename");
-f.addEventListener( "change", function (event) {
-    var URL = URL || webkitURL;
-    var file = event.target.files[0];
-    document.getElementById("video2").src = URL.createObjectURL(file);
-    document.getElementById("filename").style.display="none";
 }, false );
 
 </script>
