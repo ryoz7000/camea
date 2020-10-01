@@ -42,9 +42,9 @@ font-size:30px;
 </style>
 <body>
 <div id="view">
-<video id="video"  autoplay  onClick="switchCamera()></video>
+<video id="video"  autoplay  onClick="switchCamera()"></video>
 <input type="file" id="filename"/>
-<video id="video2" autoplay loop"></video>
+<video id="video2" autoplay loop></video>
 </div>
 <br>
 
@@ -82,7 +82,6 @@ f.addEventListener( "change", function (event) {
     document.getElementById("video2").src = URL.createObjectURL(file);
     document.getElementById("filename").style.display="none";
 }, false );
-
-var v=document.getElementById("video");	  
+							    switchCamera();
 </script>
 </html>
