@@ -38,7 +38,7 @@ border-radius: 10px;
 #filename{
 	top:0;
 	left:0;
-	width:100%;
+	font-size:100px;
 	position:absolute;
 	background-color: yellow;
 }
@@ -76,7 +76,7 @@ f.addEventListener( "change", function (event) {
     var URL = URL || webkitURL;
     var file = event.target.files[0];
     document.getElementById("video2").src = URL.createObjectURL(file);
-    document.getElementById("filename")[0].style.display="none";
+    document.getElementById("filename").style.display="none";
 }, false );
 
 </script>
