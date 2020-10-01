@@ -64,14 +64,7 @@ function requestFullscreen(target) {
 	}
 }
 
-const constraints = {
-        audio: false,  // オーディオデバイスは使用しない
-        video: {
-    facingMode: {
-      exact: "environment"
-    },
-  }
-};
+const constraints ={ audio: false, video: { facingMode: "environment" } };
 
 navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {document.getElementById("video").srcObject = stream;});
 document.getElementById("video").style.width="100%";
