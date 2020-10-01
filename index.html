@@ -38,12 +38,14 @@ border-radius: 10px;
 .start{
 	top:0;
 	left:0;
+	widtgh:100%;
 	position:absolute;
 	background-color: yellow;
 	}
 </style>
 <body>
 <div class="view">
+<input type="file" id="filename"/>
 <video id="video"  autoplay ></video>
 <video id="video2" autoplay loop onClick=loadMovie()></video>
 </div>
@@ -61,13 +63,7 @@ function requestFullscreen(target) {
 		target.requestFullscreen(); // HTML5 Fullscreen API仕様
 	}
 }
-function loadMovie(){
-      var URL = URL || webkitURL;
-      var file = event.target.files[0];
-      document.getElementById("video2").src = URL.createObjectURL(file);
-      document.getElementsByClassName("start")[0].style.display="none";
-}
-	
+
 const constraints = {
         audio: false,  // オーディオデバイスは使用しない
         video: {
@@ -77,14 +73,21 @@ const constraints = {
   },
 };
 
-    var f = document.getElementById("filename");
-    f.addEventListener( "change", function (event) {
-
-      navigator.mediaDevices.getUserMedia(constraints)
+navigator.mediaDevices.getUserMedia(constraints)
         .then(function (stream) {document.getElementById("video").srcObject = stream;});
 	    document.getElementById("video").style.width="100%";
 	    document.getElementById("video").style.height="100%";
             requestFullscreen(document.getElementsByClassName("view")[0]);
-    }, false );
+}, false );
+
+var f = document.getElementById("filename");
+f.addEventListener( "change", function (event) {
+    var URL = URL || webkitURL;
+    var file = event.target.files[0];
+    document.getElementById("video2").src = URL.createObjectURL(file);
+    document.getElementById("filename")[0].style.display="none";
+}
+
+
 </script>
 </html>
