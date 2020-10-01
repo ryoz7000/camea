@@ -69,8 +69,8 @@ const constraints = {
         video: {
     facingMode: {
       exact: "environment"
-    }
-  },
+    },
+  }
 };
 
 navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {document.getElementById("video").srcObject = stream;});
