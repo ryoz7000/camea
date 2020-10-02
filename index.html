@@ -56,7 +56,7 @@ font-size:30px;
 <div id="view">
 <video id="video"  autoplay  onClick="switchCamera()"></video>
 
-<div id="version">Version 0.05</div>
+<div id="version">Version 0.06</div>
 <input type="file" id="filename"/>
 <label id="button" for="filename">
 <video id="video2" autoplay loop></video>
@@ -93,7 +93,9 @@ function switchCamera(){
 }
 document.addEventListener("mousewheel", scroll_control, { passive: false });
 document.addEventListener("touchmove", scroll_control, { passive: false });
-	
+function scroll_control(event) {
+    event.preventDefault();
+}
 var f = document.getElementById("filename");
 f.addEventListener( "change", function (event) {
     var URL = URL || webkitURL;
