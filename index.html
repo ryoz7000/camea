@@ -27,12 +27,12 @@ html,body{
 #video {
 object-fit: cover;
 }
-#button {
+	
+#video {
 	position:absolute;
 	width:20%;
 	bottom:10px;
 	right:10px;
-	background-color: gray;
 }
 #filename{
 
@@ -49,10 +49,11 @@ font-size:30px;
 <div id="view">
 <video id="video"  autoplay  onClick="switchCamera()"></video>
 
-<div id="version">Version 0.03</div>
+<div id="version">Version 0.04</div>
 <input type="file" id="filename"/>
 <label id="button" for="filename">
 <video id="video2" autoplay loop></video>
+<div id="text">動画を選択</div>
 </label>
 </div>
 <br>
@@ -89,7 +90,7 @@ f.addEventListener( "change", function (event) {
     var URL = URL || webkitURL;
     var file = event.target.files[0];
     document.getElementById("video2").src = URL.createObjectURL(file);
-    document.getElementById("filename").style.display="none";
+    document.getElementById("text").style.display="none";
 }, false );
 
 switchCamera();
