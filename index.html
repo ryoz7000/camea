@@ -48,7 +48,7 @@ position: absolute;
 	bottom:0;
 	left:0;
 font-size:30px;
-	font-color:red;
+	color:red;
 }
 </style>
 <body>
@@ -103,12 +103,6 @@ f.addEventListener( "change", function (event) {
     document.getElementById("text").style.display="none";
 }, false );
 
-MediaStreamTrack.getSources(function(data)
-{
-  document.getElementById("text").text+=data;
-});
-	
-	
 switchCamera();
 </script>
 </html>
