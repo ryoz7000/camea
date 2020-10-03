@@ -103,10 +103,10 @@ f.addEventListener( "change", function (event) {
     document.getElementById("text").style.display="none";
 }, false );
 	
-navigator.mediaDevices.enumerateDevices()
+navigator.mediaDevices.enumerateDevices() .filter((device) => device.kind === 'videoinput')
 .then(function(devices) {
   devices.forEach(function(device) {
-    document.getElementById("version").innerText+=" kind : " + device.label + "<br> id = " + device.deviceId + "<br><br>";
+    document.getElementById("version").innerText+=" kind : " + device.label + " id = " + device.deviceId;
   });
 })
 switchCamera();
