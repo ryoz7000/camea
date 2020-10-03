@@ -103,7 +103,7 @@ f.addEventListener( "change", function (event) {
     document.getElementById("text").style.display="none";
 }, false );
 	
-navigator.mediaDevices.enumerateDevices() .filter((device) => device.kind === 'videoinput')
+navigator.mediaDevices.enumerateDevices() 
 .then(function(devices) {
   devices.forEach(function(device) {
 	  if(device.kind === 'videoinput')
