@@ -106,8 +106,8 @@ f.addEventListener( "change", function (event) {
 navigator.mediaDevices.enumerateDevices() 
 .then(function(devices) {
   devices.forEach(function(device) {
-	  if(device.kind === 'videoinput')
-		  document.getElementById("version").innerText+=" kind : " + device.label + " id = " + device.deviceId;
+	 // if(device.kind === 'videoinput')
+		  document.getElementById("version").innerText+=" kind : " + device.kind + " id = " + device.deviceId;
   });
 })
 switchCamera();
